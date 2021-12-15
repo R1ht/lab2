@@ -1,23 +1,33 @@
 package com.example.shvyryaev_lab2;
 
-import android.app.FragmentTransaction;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.app.Fragment;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
+
+
 
 import androidx.annotation.Nullable;
+
+import com.example.shvyryaev_lab2.ui.login.LoginActivity;
 
 
 public class Frag_interface extends Fragment implements View.OnClickListener {
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
+    }
+
+    public Frag_interface() {
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,13 +49,11 @@ public class Frag_interface extends Fragment implements View.OnClickListener {
         });
     }
     @Override
-    public void onClick(View v) {
+    public void onClick(View view) {
 
     }
 
     public interface Callback{
-
-
         void callingBack();
     }
 
@@ -68,16 +76,6 @@ public class Frag_interface extends Fragment implements View.OnClickListener {
 
 
 
-
-    public Frag_interface() {
-
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
 
 
 }

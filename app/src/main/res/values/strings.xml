@@ -4,11 +4,19 @@
     <string name="frag1_text">This is fragment1</string>
     <string name="frag2_text">This is fragment2</string>
     <string name="remove">Открыть фрагмент-меню </string>
-    <string name="add">Add</string>
-    <string name="replace">Replace</string>
-    <string name="stack">Stack</string>
+    <string name="add">Фрагмент красный</string>
+    <string name="replace">Фрагмент зелёный</string>
     <string name="_1">Получить коллбэк</string>
-    <string name="_2">Открыть фрагмент 1</string>
-    <string name="_3">Открыть фрагмент 2</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="logActButton">Открыть логин активити</string>
+
 
 </resources>

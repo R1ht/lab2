@@ -45,10 +45,21 @@
             android:layout_width="match_parent"
             android:layout_height="34dp" />
 
+
+
     </LinearLayout>
 
     <FrameLayout
         android:id="@+id/frgmCont"
         android:layout_width="match_parent"
-        android:layout_height="531dp"></FrameLayout>
+        android:layout_height="314dp">
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/logActButton"
+        android:layout_width="216dp"
+        android:onClick="onClick"
+        android:layout_height="wrap_content"
+        android:text="@string/logActButton" />
+
 </LinearLayout>

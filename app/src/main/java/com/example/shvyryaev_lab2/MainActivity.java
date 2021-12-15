@@ -1,30 +1,30 @@
 package com.example.shvyryaev_lab2;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.shvyryaev_lab2.ui.login.LoginActivity;
+import com.squareup.otto.Bus;
+import com.squareup.otto.Subscribe;
+
 public class MainActivity extends Activity implements Frag_interface.Callback {
-    Fragment1 frag1;
-    Fragment2 frag2;
-    Frag_interface frag3;
     TextView txt1;
     FragmentTransaction fTrans;
+    private Bus bus;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        frag1 = new Fragment1();
-        frag2 = new Fragment2();
-        frag3 = new Frag_interface();
         txt1 = (TextView) findViewById(R.id.textView);
-
-
+        bus = new Bus();
+        bus.register(this);
     }
 
 
@@ -33,13 +33,20 @@ public class MainActivity extends Activity implements Frag_interface.Callback {
         fTrans = getFragmentManager().beginTransaction();
         switch (view.getId()) {
             case R.id.btnAct2:
-                fTrans.add(R.id.frgmCont, frag1);
+                fTrans.replace(R.id.frgmCont, new Fragment1());
                 break;
             case R.id.btnMenu:
-                fTrans.add(R.id.frgmCont, frag3);
+
+                fTrans.replace(R.id.frgmCont, new Frag_interface());
                 break;
             case R.id.btnAct3:
-                fTrans.replace(R.id.frgmCont, frag2);
+                fTrans.replace(R.id.frgmCont, new Fragment2());
+                break;
+
+            case R.id.logActButton:
+                bus.post(new Activator());
+                break;
+
             default:
                 break;
         }
@@ -47,6 +54,12 @@ public class MainActivity extends Activity implements Frag_interface.Callback {
         fTrans.commit();
     }
 
+    @Subscribe
+    public void ActivityStarter(Activator event){
+        Intent intent = new Intent(this, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
 
 
     @Override
